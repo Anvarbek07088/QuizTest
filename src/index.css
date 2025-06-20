@@ -2,11 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional qo‘shimcha stillar */
-body {
+ Optional qo‘shimcha stillar 
+ body {
   @apply bg-gray-100 font-sans text-gray-800;
 }
 
 button:disabled {
   @apply opacity-50 cursor-not-allowed;
+} 
+
+button{
+  background-color: rgb(2, 75, 37);
+  color: aliceblue;
+  margin-bottom: 10px;
+  border: none;
+  right: 10px;
+}
+
+#d{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }

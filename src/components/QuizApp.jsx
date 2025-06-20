@@ -46,7 +46,7 @@ const Quiz = () => {
         <h1 className="text-3xl font-bold mb-6">Rumen German Quiz</h1>
         <button
           onClick={startQuiz}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          className="px-6 py-3 bg-blue-800 text-white rounded-lg hover:bg-blue-700"
         >
           Boshlash
         </button>
@@ -58,7 +58,9 @@ const Quiz = () => {
     return (
       <div className="text-center mt-20">
         <h2 className="text-2xl font-semibold mb-4">Test yakunlandi!</h2>
-        <p className="text-xl mb-6">Natijangiz: {score} / {questions.length}</p>
+        <p className="text-xl mb-6">
+          Natijangiz: {score} / {questions.length}
+        </p>
         <button
           onClick={startQuiz}
           className="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
@@ -79,31 +81,36 @@ const Quiz = () => {
           const isCorrect = option === currentQuestion.correctAnswer;
           const isSelected = option === selected;
 
-          let style = "flex items-center justify-between border px-4 py-2 rounded cursor-pointer";
+          let style =
+            "flex items-center justify-between border px-4 py-2 rounded cursor-pointer";
           let icon = null;
 
           if (showAnswer) {
             if (isCorrect) {
-              style += " bg-green-100 border-green-400 ";
+              style += " bg-blue-500 border-green-400 ";
               icon = <CheckCircle className="text-green-600" size={20} />;
             } else if (isSelected) {
-              style += " bg-red-100 border-red-400";
+              style += " bg-red-500 border-red-400";
               icon = <XCircle className="text-red-600" size={20} />;
             } else {
-              style += " hover:bg-gray-100";
+              style += " hover:bg-green-500";
             }
           } else {
             if (isSelected) {
-              style += " bg-blue-100 border-blue-400 ";
+              style += " bg-blue-500 border-blue-400 ";
               icon = <CheckCircle className="text-blue-500" size={20} />;
             } else {
-              style += " hover:bg-gray-100";
+              style += " hover:bg-gray-500";
             }
           }
 
           return (
-            <li  key={idx} onClick={() => handleSelect(option)} className={style}>
-              <button  >{option}</button>
+            <li 
+              key={idx}
+              onClick={() => handleSelect(option)}
+              className={style}
+            >
+              <button >{option}</button>
               {icon}
             </li>
           );
@@ -111,12 +118,14 @@ const Quiz = () => {
       </ul>
 
       {showAnswer && (
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between mt-6 " id="d">
           <button
             onClick={handleNext}
             className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            {currentIndex + 1 === questions.length ? "Yakunlash" : "Keyingi savol"}
+            {currentIndex + 1 === questions.length
+              ? "Yakunlash"
+              : "Keyingi savol"}
           </button>
           <button
             onClick={startQuiz}
