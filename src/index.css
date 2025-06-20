@@ -14,9 +14,10 @@ button:disabled {
 button{
   background-color: rgb(2, 75, 37);
   color: aliceblue;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: none;
   right: 10px;
+  padding: 10px;
 }
 
 #d{
